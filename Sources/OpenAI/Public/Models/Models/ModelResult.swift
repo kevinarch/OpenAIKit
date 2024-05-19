@@ -13,16 +13,22 @@ public struct ModelResult: Codable, Equatable {
     /// The model identifier, which can be referenced in the API endpoints.
     public let id: String
     /// The Unix timestamp (in seconds) when the model was created.
-    public let created: TimeInterval
+    public let created: TimeInterval?
     /// The object type, which is always "model".
-    public let object: String
+    public let object: String?
     /// The organization that owns the model.
-    public let ownedBy: String
+    public let ownedBy: String?
+    
+    public let contextWindow: Int?
+    
+    public let active: Bool?
 
     public enum CodingKeys: String, CodingKey {
         case id
         case created
         case object
         case ownedBy = "owned_by"
+        case contextWindow =  "context_window"
+        case active = "active"
     }
 }
